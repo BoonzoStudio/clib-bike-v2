@@ -2,13 +2,22 @@ import './style.css';
 
 import mapboxgl from 'mapbox-gl';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
+class App {
 
-const map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/mapbox/streets-v9',
-    center: [2.35, 48.58], // [lng, lat]
-    zoom: 5
-});
+  map: mapboxgl.Map;
 
-map.addControl(new mapboxgl.NavigationControl());
+  constructor() {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY2xpcC1iaWtlIiwiYSI6ImNqemExa21sYzAwMWUzY251ZnI0bGlqdnkifQ.z-txdJ5mzB8xpSa0VQwpgg';
+
+    this.map = new mapboxgl.Map({
+      container: 'map', // container id
+      style: 'mapbox://styles/clip-bike/cjza2dmff565b1cnx125pfd4j',
+      center: [-122.866208, 45.5234], // [lng, lat]
+      zoom: 9
+    });
+
+    this.map.addControl(new mapboxgl.NavigationControl());
+  }
+}
+
+const app = new App();
