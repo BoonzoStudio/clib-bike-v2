@@ -1,8 +1,9 @@
+import 'mapbox-gl/dist/mapbox-gl.css';
 import './style.css';
 
 import mapboxgl from 'mapbox-gl';
 
-class App {
+export class App {
 
   map: mapboxgl.Map;
 
@@ -16,7 +17,7 @@ class App {
       zoom: 9
     });
 
-    this.map.addControl(new mapboxgl.NavigationControl());
+    this.map.addControl(new mapboxgl.NavigationControl(),'top-right');
   }
 }
 
