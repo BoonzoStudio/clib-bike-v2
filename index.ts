@@ -1,23 +1,21 @@
-import 'mapbox-gl/dist/mapbox-gl.css';
-import './style.css';
 
-import mapboxgl from 'mapbox-gl';
+import './style.css';
+import { Logger } from "./logger";
+import { RepoService } from "./repo-service";
+import { MapService } from "./map-service";
+import { MapUpdater } from "./map-updater";
 
 export class App {
 
-  map: mapboxgl.Map;
+  map: MapService;
+  repo: RepoService;
+  mapUpdater: MapUpdater;
 
   constructor() {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiY2xpcC1iaWtlIiwiYSI6ImNqemExa21sYzAwMWUzY251ZnI0bGlqdnkifQ.z-txdJ5mzB8xpSa0VQwpgg';
-
-    this.map = new mapboxgl.Map({
-      container: 'map', // container id
-      style: 'mapbox://styles/clip-bike/cjza2dmff565b1cnx125pfd4j',
-      center: [-122.866208, 45.5234], // [lng, lat]
-      zoom: 9
-    });
-
-    this.map.addControl(new mapboxgl.NavigationControl(),'top-right');
+    this.repo = new RepoService();
+    this.map = new MapService();
+    this.mapUpdater = new MapUpdater(this.map, this.repo);
+    //this.repo.start();
   }
 }
 
