@@ -70,8 +70,7 @@ export class MapUpdater {
       this.userMarkers.delete(id);
     }
     var el = document.createElement('span');
-    el.className = 'material-icons';
-    el.innerHTML = 'directions_bike';
+    el.innerHTML = '<img srv="./assets/bike.svg"/>';
     el.style.transform = el.style.transform+'rotate(90deg)';
     if (new Date().getTime()-u.ts < 2*60*60*1000){
     el.style.color = 'black';
