@@ -62,6 +62,7 @@ export interface Poi {
   cog: number;
   sc: number;
   uid: string;
+  pic: boolean;
 }
 // course: 107.54
 // date: "2019-09-02T22:02:56"

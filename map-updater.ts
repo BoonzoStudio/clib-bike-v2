@@ -11,7 +11,7 @@ export class MapUpdater {
   userMarkers: Map<string, Marker>;
 
   constructor(private mapService: MapService, private repo: RepoService) {
-    mapService.map.on('load',()=>this.onLoad());
+    mapService.map.on('load', () => this.onLoad());
   }
 
   onLoad() {
@@ -38,7 +38,10 @@ export class MapUpdater {
     el.innerHTML = 'warning';
     el.style.color = 'red';
     el.style.fontSize = '24px';
-    el.style.background = 'white';
+    if (p.pic)
+      el.style.background = 'white';
+    else
+      el.style.background = 'lightgray';
     el.style.width = '24px';
     el.style.height = '24px';
     el.style.borderRadius = '20%';
@@ -61,7 +64,7 @@ export class MapUpdater {
     // marker.on('click', ()=>this.repo.downloadImage(id));
     this.poiMarkers.set(id, marker);
   }
-// https://codepen.io/aderaaij/pen/KvJbGj
+  // https://codepen.io/aderaaij/pen/KvJbGj
   UpdateUserLocation(id: string, u: User) {
     Logger.log('location change received ' + id);
     if (this.userMarkers.has(id)) {
@@ -70,12 +73,12 @@ export class MapUpdater {
       this.userMarkers.delete(id);
     }
     var el = document.createElement('span');
-    el.innerHTML = '<img srv="./assets/bike.svg"/>';
-    el.style.transform = el.style.transform+'rotate(90deg)';
-    if (new Date().getTime()-u.ts < 2*60*60*1000){
-    el.style.color = 'black';
-    } else{
-    el.style.color = 'gray';
+    el.className = 'material-icons';
+    el.innerHTML = 'directions_bike';
+    if (new Date().getTime() - u.ts < 2 * 60 * 60 * 1000) {
+      el.style.color = 'black';
+    } else {
+      el.style.color = 'gray';
     }
     el.style.fontSize = '30px';
     el.style.background = '#80808030';
