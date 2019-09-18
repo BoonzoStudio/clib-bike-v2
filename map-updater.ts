@@ -52,7 +52,7 @@ export class MapUpdater {
     el.style.cursor = 'pointer';
     var popup = new Popup({ offset: 25, maxWidth: 'none' });
     this.repo.downloadImage(id).then((url) => {
-      console.log(url);
+      Logger.log(url);
       popup.setHTML('<style> img {  padding-top: 10px; padding-right: 10px;padding-bottom: 10px;padding-left: 10px;}</style><img src="' + url + '" width="300" alt="No Image"/>' + '<br>Created: ' + this.formatDate(p.ts));
     }).catch();
 

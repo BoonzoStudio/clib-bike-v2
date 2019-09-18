@@ -1,3 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+<link rel="stylesheet" type="text/css" href="https://rawgit.com/outboxcraft/beauter/master/beauter.min.css" />
+</head>
+
+<body>
 <div id='map'></div>
+<!-- <div id="login" class="user-login material-icons">person</div> -->
+<button class="_round _success user-login" onclick="openmodal('sign-in')"><i class="material-icons">person</i></button>
+<div id="sign-in" class="modalbox-modal ">
+
+<div class="modalbox-modal-content">
+
+<form>
+<fieldset>
+    <legend>Sign in</legend>
+    <div class="col m6">
+      <label for="Email">email</label>
+      <input class="_full-width" type="email" placeholder="test@mail.com" id="Email">
+    </div>
+    <div class="col m6">
+      <label for="Password">password</label>
+      <input class="_full-width" type="password" id="Password">
+    </div>
+  <input class=" _primary button" type="submit" value="OK">
+  <button class="button" value="Cancel">Cancel</button>
+</fieldset>
+</form>
+
+</div>
+</div>
+<script src="https://rawgit.com/outboxcraft/beauter/master/beauter.min.js"></script>
+</body>
+</html>
